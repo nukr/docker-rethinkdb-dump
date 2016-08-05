@@ -1,0 +1,14 @@
+pipeline:
+  test:
+    image: mhart/alpine-node:6.3.1
+    commands:
+      - apk add --no-cache make gcc g++ python py-pip curl libc6-compat
+      - npm i
+      - npm run build
+  docker:
+    repo: asia.gcr.io/instant-matter-785/rethinkdb-backup
+    tag:
+      - latest
+      - "${DRONE_TAG##v}"
+    when:
+      event: tag
