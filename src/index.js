@@ -34,7 +34,6 @@ function backup () {
       if (err) {
         console.error(err)
       }
-      console.log(file)
       fs.unlink(FILE_PATH, (err) => {
         if (err) throw new Error('delete file fail', err)
         console.log('delete file', FILE_PATH)
