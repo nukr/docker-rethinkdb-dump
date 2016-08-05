@@ -5,5 +5,5 @@ export default multiconfig({
     host: 'rethinkdb',
     port: 28015
   },
-  interval
+  interval: 120 * 1000
 })

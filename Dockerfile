@@ -7,7 +7,8 @@ RUN apk add --no-cache make gcc g++ python py-pip curl libc6-compat \
 && pip install rethinkdb \
 && cd /tmp && npm install --production \
 && mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/ \
-&& apk del make gcc g++ python py-pip curl libc6-compat
+&& apk del make gcc g++ python py-pip curl
+
 
 WORKDIR /opt/app
 COPY . /opt/app
