@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.15.2",
+    "babel-cli": "^6.11.4",
     "babel-plugin-transform-flow-strip-types": "^6.8.0",
     "babel-preset-es2015-node6": "^0.2.0",
     "babel-preset-stage-0": "^6.5.0",
