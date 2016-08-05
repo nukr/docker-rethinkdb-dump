@@ -4,7 +4,12 @@ import config from './config'
 import fs from 'fs'
 import { spawn } from 'child_process'
 
+backup()
 setInterval(() => {
+  backup()
+}, config.interval)
+
+function backup () {
   console.log('starting backup')
   const FILE_PATH = `/tmp/rethinkdb_backup-${moment().utc().format('YYYY-MM-DD_HH-mm-ss')}.tar.gz`
   console.log(`FILE_PATH is ${FILE_PATH}`)
@@ -36,5 +41,4 @@ setInterval(() => {
       })
     })
   })
-}, config.interval)
-
+}
