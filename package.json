@@ -23,6 +23,8 @@
     "flow-bin": "^0.30.0"
   },
   "dependencies": {
-    "gcloud": "^0.37.0"
+    "@nukr/multiconfig": "^0.1.4",
+    "gcloud": "^0.37.0",
+    "moment": "^2.14.1"
   }
 }

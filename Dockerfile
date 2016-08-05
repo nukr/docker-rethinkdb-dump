@@ -1,15 +1,15 @@
 FROM mhart/alpine-node:6.3.1
 MAINTAINER nukr <nukrs.w@gmail.com>
 
-RUN apk add --no-cache make gcc g++ python py-pip curl libc6-compat && pip install rethinkdb
-
 COPY package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
-RUN npm install babel-cli -g
+RUN apk add --no-cache make gcc g++ python py-pip curl libc6-compat \
+&& pip install rethinkdb \
+&& cd /tmp && npm install \
+&& mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/ \
+&& apk del make gcc g++ python py-pip curl libc6-compat
 
 WORKDIR /opt/app
 COPY . /opt/app
 
-CMD ["./backup.sh"]
+CMD ["node", "dist/index.js"]
