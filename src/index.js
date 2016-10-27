@@ -5,9 +5,6 @@ import fs from 'fs'
 import { spawn } from 'child_process'
 
 backup()
-setInterval(() => {
-  backup()
-}, config.interval)
 
 function backup () {
   console.log('starting backup')
